@@ -1,5 +1,8 @@
 // IMPORT CLIENT HERE VIA deno.land/x url
 
+const message = "Hello Discord";
+const fileDirectory = "./libs/example/mod.ts";
+
 interface returnOBJ {
   avgTimePerExecution: number;
   totalTimeOfExecutions: number;
@@ -20,8 +23,10 @@ export function fetchMessages(amount: number): returnOBJ {
   // FETCH MESSAGES
 
   const stop = performance.now();
+
   obj.totalTimeOfExecutions = stop - start;
   obj.avgTimePerExecution = obj.totalTimeOfExecutions / obj.executions;
+
   return obj;
 }
 
@@ -37,8 +42,10 @@ export function fetchUsers(amount: number): returnOBJ {
   // FETCH USERS
 
   const stop = performance.now();
+
   obj.totalTimeOfExecutions = stop - start;
   obj.avgTimePerExecution = obj.totalTimeOfExecutions / obj.executions;
+
   return obj;
 }
 
@@ -54,8 +61,10 @@ export function fetchRoles(amount: number): returnOBJ {
   // FETCH ROLES
 
   const stop = performance.now();
+
   obj.totalTimeOfExecutions = stop - start;
   obj.avgTimePerExecution = obj.totalTimeOfExecutions / obj.executions;
+
   return obj;
 }
 
@@ -71,8 +80,10 @@ export function fetchGuilds(amount: number): returnOBJ {
   // FETCH GUILDS
 
   const stop = performance.now();
+
   obj.totalTimeOfExecutions = stop - start;
   obj.avgTimePerExecution = obj.totalTimeOfExecutions / obj.executions;
+
   return obj;
 }
 
@@ -82,7 +93,7 @@ export function sendMessage(amount: number): returnOBJ {
     totalTimeOfExecutions: NaN,
     executions: amount,
   };
-  const message = "Hello Discord";
+
   const start = performance.now();
 
   for (let i = 0; i < amount; i++) {
@@ -91,8 +102,10 @@ export function sendMessage(amount: number): returnOBJ {
   }
 
   const stop = performance.now();
+
   obj.totalTimeOfExecutions = stop - start;
   obj.avgTimePerExecution = obj.totalTimeOfExecutions / obj.executions;
+
   return obj;
 }
 
@@ -102,7 +115,7 @@ export function sendEmbed(amount: number): returnOBJ {
     totalTimeOfExecutions: NaN,
     executions: amount,
   };
-  const message = "Hello Discord";
+
   const start = performance.now();
 
   for (let i = 0; i < amount; i++) {
@@ -111,18 +124,19 @@ export function sendEmbed(amount: number): returnOBJ {
   }
 
   const stop = performance.now();
+
   obj.totalTimeOfExecutions = stop - start;
   obj.avgTimePerExecution = obj.totalTimeOfExecutions / obj.executions;
+
   return obj;
 }
 
-export function uploadFile(amount: number): returnOBJ {
+export function sendFile(amount: number): returnOBJ {
   const obj: returnOBJ = {
     avgTimePerExecution: NaN,
     totalTimeOfExecutions: NaN,
     executions: amount,
   };
-  const fileDirectory = "./libs/example/mod.ts";
   const start = performance.now();
 
   for (let i = 0; i < amount; i++) {
@@ -131,25 +145,51 @@ export function uploadFile(amount: number): returnOBJ {
   }
 
   const stop = performance.now();
+
   obj.totalTimeOfExecutions = stop - start;
   obj.avgTimePerExecution = obj.totalTimeOfExecutions / obj.executions;
+
   return obj;
 }
 
-export function sendEmbedWithFile(amount: number): returnOBJ {
+export function addReaction(messages: unknown[]): returnOBJ {
+  const obj: returnOBJ = {
+    avgTimePerExecution: NaN,
+    totalTimeOfExecutions: NaN,
+    executions: messages.length,
+  };
+  const start = performance.now();
+
+  for (const message of messages) {
+    // add :thumbsup: reaction to message[i]
+    // Client.addReaction(message, ":thumbsup:");
+  }
+
+  const stop = performance.now();
+
+  obj.totalTimeOfExecutions = stop - start;
+  obj.avgTimePerExecution = obj.totalTimeOfExecutions / obj.executions;
+
+  return obj;
 }
 
-export function addReaction(amount: number): returnOBJ {
-}
+export function removeReactions(messages: unknown[]): returnOBJ {
+  const obj: returnOBJ = {
+    avgTimePerExecution: NaN,
+    totalTimeOfExecutions: NaN,
+    executions: messages.length,
+  };
+  const start = performance.now();
 
-export function removeReaction(amount: number): returnOBJ {
-}
+  for (const message of messages) {
+    // remove :thumbsup: reaction to message[i]
+    // Client.removeReactions(message);
+  }
 
-export function removeReactions(amount: number): returnOBJ {
-}
+  const stop = performance.now();
 
-export function removeEmoji(amount: number): returnOBJ {
-}
+  obj.totalTimeOfExecutions = stop - start;
+  obj.avgTimePerExecution = obj.totalTimeOfExecutions / obj.executions;
 
-export function addEmoji(amount: number): returnOBJ {
+  return obj;
 }
