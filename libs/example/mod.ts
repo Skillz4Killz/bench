@@ -5,7 +5,7 @@ const fileDirectory = "./libs/example/mod.ts";
 
 // CREATE NEW INSTANCE OF CLIENT; const client = new Client();
 
-export function fetchMessages(amount: number): returnOBJ {
+export async function fetchMessages(amount: number): Promise<returnOBJ> {
   const obj: returnOBJ = {
     avg: NaN,
     total: NaN,
@@ -23,7 +23,7 @@ export function fetchMessages(amount: number): returnOBJ {
   return obj;
 }
 
-export function fetchUsers(amount: number): returnOBJ {
+export async function fetchUsers(amount: number): Promise<returnOBJ> {
   const obj: returnOBJ = {
     avg: NaN,
     total: NaN,
@@ -40,7 +40,7 @@ export function fetchUsers(amount: number): returnOBJ {
 
   return obj;
 }
-export function fetchChannels(amount: number): returnOBJ {
+export async function fetchChannels(amount: number): Promise<returnOBJ> {
   const obj: returnOBJ = {
     avg: NaN,
     total: NaN,
@@ -58,7 +58,7 @@ export function fetchChannels(amount: number): returnOBJ {
   return obj;
 }
 
-export function fetchRoles(amount: number): returnOBJ {
+export async function fetchRoles(amount: number): Promise<returnOBJ> {
   const obj: returnOBJ = {
     avg: NaN,
     total: NaN,
@@ -76,7 +76,7 @@ export function fetchRoles(amount: number): returnOBJ {
   return obj;
 }
 
-export function fetchGuilds(amount: number): returnOBJ {
+export async function fetchGuilds(amount: number): Promise<returnOBJ> {
   const obj: returnOBJ = {
     avg: NaN,
     total: NaN,
@@ -94,7 +94,7 @@ export function fetchGuilds(amount: number): returnOBJ {
   return obj;
 }
 
-export function sendMessage(amount: number): returnOBJ {
+export async function sendMessage(amount: number): Promise<returnOBJ> {
   const obj: returnOBJ = {
     avg: NaN,
     total: NaN,
@@ -115,7 +115,7 @@ export function sendMessage(amount: number): returnOBJ {
   return obj;
 }
 
-export function sendEmbed(amount: number): returnOBJ {
+export async function sendEmbed(amount: number): Promise<returnOBJ> {
   const obj: returnOBJ = {
     avg: NaN,
     total: NaN,
@@ -136,7 +136,7 @@ export function sendEmbed(amount: number): returnOBJ {
   return obj;
 }
 
-export function sendFile(amount: number): returnOBJ {
+export async function sendFile(amount: number): Promise<returnOBJ> {
   const obj: returnOBJ = {
     avg: NaN,
     total: NaN,
@@ -157,7 +157,7 @@ export function sendFile(amount: number): returnOBJ {
   return obj;
 }
 
-export function addReaction(messages: unknown[]): returnOBJ {
+export async function addReaction(messages: unknown[]): Promise<returnOBJ> {
   const obj: returnOBJ = {
     avg: NaN,
     total: NaN,
@@ -178,7 +178,7 @@ export function addReaction(messages: unknown[]): returnOBJ {
   return obj;
 }
 
-export function removeReactions(messages: unknown[]): returnOBJ {
+export async function removeReactions(messages: unknown[]): Promise<returnOBJ> {
   const obj: returnOBJ = {
     avg: NaN,
     total: NaN,
