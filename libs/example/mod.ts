@@ -4,18 +4,16 @@ const message = "Hello Discord";
 const fileDirectory = "./libs/example/mod.ts";
 
 interface returnOBJ {
-  avgTimePerExecution: number;
-  totalTimeOfExecutions: number;
-  executions: number;
+  avg: number;
+  total: number;
 }
 
 // CREATE NEW INSTANCE OF CLIENT; const client = new Client();
 
 export function fetchMessages(amount: number): returnOBJ {
   const obj: returnOBJ = {
-    avgTimePerExecution: NaN,
-    totalTimeOfExecutions: NaN,
-    executions: amount,
+    avg: NaN,
+    total: NaN,
   };
 
   const start = performance.now();
@@ -24,17 +22,16 @@ export function fetchMessages(amount: number): returnOBJ {
 
   const stop = performance.now();
 
-  obj.totalTimeOfExecutions = stop - start;
-  obj.avgTimePerExecution = obj.totalTimeOfExecutions / obj.executions;
+  obj.total = stop - start;
+  obj.avg = obj.total / amount;
 
   return obj;
 }
 
 export function fetchUsers(amount: number): returnOBJ {
   const obj: returnOBJ = {
-    avgTimePerExecution: NaN,
-    totalTimeOfExecutions: NaN,
-    executions: amount,
+    avg: NaN,
+    total: NaN,
   };
 
   const start = performance.now();
@@ -43,17 +40,16 @@ export function fetchUsers(amount: number): returnOBJ {
 
   const stop = performance.now();
 
-  obj.totalTimeOfExecutions = stop - start;
-  obj.avgTimePerExecution = obj.totalTimeOfExecutions / obj.executions;
+  obj.total = stop - start;
+  obj.avg = obj.total / amount;
 
   return obj;
 }
 
 export function fetchRoles(amount: number): returnOBJ {
   const obj: returnOBJ = {
-    avgTimePerExecution: NaN,
-    totalTimeOfExecutions: NaN,
-    executions: amount,
+    avg: NaN,
+    total: NaN,
   };
 
   const start = performance.now();
@@ -62,17 +58,16 @@ export function fetchRoles(amount: number): returnOBJ {
 
   const stop = performance.now();
 
-  obj.totalTimeOfExecutions = stop - start;
-  obj.avgTimePerExecution = obj.totalTimeOfExecutions / obj.executions;
+  obj.total = stop - start;
+  obj.avg = obj.total / amount;
 
   return obj;
 }
 
 export function fetchGuilds(amount: number): returnOBJ {
   const obj: returnOBJ = {
-    avgTimePerExecution: NaN,
-    totalTimeOfExecutions: NaN,
-    executions: amount,
+    avg: NaN,
+    total: NaN,
   };
 
   const start = performance.now();
@@ -81,17 +76,16 @@ export function fetchGuilds(amount: number): returnOBJ {
 
   const stop = performance.now();
 
-  obj.totalTimeOfExecutions = stop - start;
-  obj.avgTimePerExecution = obj.totalTimeOfExecutions / obj.executions;
+  obj.total = stop - start;
+  obj.avg = obj.total / amount;
 
   return obj;
 }
 
 export function sendMessage(amount: number): returnOBJ {
   const obj: returnOBJ = {
-    avgTimePerExecution: NaN,
-    totalTimeOfExecutions: NaN,
-    executions: amount,
+    avg: NaN,
+    total: NaN,
   };
 
   const start = performance.now();
@@ -103,17 +97,16 @@ export function sendMessage(amount: number): returnOBJ {
 
   const stop = performance.now();
 
-  obj.totalTimeOfExecutions = stop - start;
-  obj.avgTimePerExecution = obj.totalTimeOfExecutions / obj.executions;
+  obj.total = stop - start;
+  obj.avg = obj.total / amount;
 
   return obj;
 }
 
 export function sendEmbed(amount: number): returnOBJ {
   const obj: returnOBJ = {
-    avgTimePerExecution: NaN,
-    totalTimeOfExecutions: NaN,
-    executions: amount,
+    avg: NaN,
+    total: NaN,
   };
 
   const start = performance.now();
@@ -125,18 +118,18 @@ export function sendEmbed(amount: number): returnOBJ {
 
   const stop = performance.now();
 
-  obj.totalTimeOfExecutions = stop - start;
-  obj.avgTimePerExecution = obj.totalTimeOfExecutions / obj.executions;
+  obj.total = stop - start;
+  obj.avg = obj.total / amount;
 
   return obj;
 }
 
 export function sendFile(amount: number): returnOBJ {
   const obj: returnOBJ = {
-    avgTimePerExecution: NaN,
-    totalTimeOfExecutions: NaN,
-    executions: amount,
+    avg: NaN,
+    total: NaN,
   };
+
   const start = performance.now();
 
   for (let i = 0; i < amount; i++) {
@@ -146,18 +139,18 @@ export function sendFile(amount: number): returnOBJ {
 
   const stop = performance.now();
 
-  obj.totalTimeOfExecutions = stop - start;
-  obj.avgTimePerExecution = obj.totalTimeOfExecutions / obj.executions;
+  obj.total = stop - start;
+  obj.avg = obj.total / amount;
 
   return obj;
 }
 
 export function addReaction(messages: unknown[]): returnOBJ {
   const obj: returnOBJ = {
-    avgTimePerExecution: NaN,
-    totalTimeOfExecutions: NaN,
-    executions: messages.length,
+    avg: NaN,
+    total: NaN,
   };
+
   const start = performance.now();
 
   for (const message of messages) {
@@ -167,18 +160,18 @@ export function addReaction(messages: unknown[]): returnOBJ {
 
   const stop = performance.now();
 
-  obj.totalTimeOfExecutions = stop - start;
-  obj.avgTimePerExecution = obj.totalTimeOfExecutions / obj.executions;
+  obj.total = stop - start;
+  obj.avg = obj.total / messages.length;
 
   return obj;
 }
 
 export function removeReactions(messages: unknown[]): returnOBJ {
   const obj: returnOBJ = {
-    avgTimePerExecution: NaN,
-    totalTimeOfExecutions: NaN,
-    executions: messages.length,
+    avg: NaN,
+    total: NaN,
   };
+
   const start = performance.now();
 
   for (const message of messages) {
@@ -188,8 +181,8 @@ export function removeReactions(messages: unknown[]): returnOBJ {
 
   const stop = performance.now();
 
-  obj.totalTimeOfExecutions = stop - start;
-  obj.avgTimePerExecution = obj.totalTimeOfExecutions / obj.executions;
+  obj.total = stop - start;
+  obj.avg = obj.total / messages.length;
 
   return obj;
 }
