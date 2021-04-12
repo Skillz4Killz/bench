@@ -1,4 +1,27 @@
 import { config, discordeno, harmony, space } from "./mod.ts";
+import type { returnOBJ } from "./mod.ts";
+
+type Name = "discordeno" | "harmony" | "space";
+type Module = {
+  addReaction: <T>(messages: T[]) => returnOBJ;
+  fetchChannels: (amount: number) => returnOBJ;
+  fetchGuilds: (amount: number) => returnOBJ;
+  fetchMessages: (amount: number) => returnOBJ;
+  fetchRoles: (amount: number) => returnOBJ;
+  fetchUsers: (amount: number) => returnOBJ;
+  removeReactions: <T>(messages: T[]) => returnOBJ;
+  sendEmbed: (amount: number) => returnOBJ;
+  sendFile: (amount: number) => returnOBJ;
+  sendMessage: (amount: number) => returnOBJ;
+};
+interface Libs {
+  name: Name;
+  module: Module;
+}
+const libs: Libs[] = [{
+  name: "discordeno",
+  module: discordeno,
+}];
 const benchmarks = () => ({
   fetch: {
     users: {
