@@ -3,16 +3,16 @@ import type { returnOBJ } from "./mod.ts";
 
 type Name = "discordeno" | "harmony" | "space";
 type Module = {
-  addReaction: <T>(messages: T[]) => returnOBJ;
-  fetchChannels: (amount: number) => returnOBJ;
-  fetchGuilds: (amount: number) => returnOBJ;
-  fetchMessages: (amount: number) => returnOBJ;
-  fetchRoles: (amount: number) => returnOBJ;
-  fetchUsers: (amount: number) => returnOBJ;
-  removeReactions: <T>(messages: T[]) => returnOBJ;
-  sendEmbed: (amount: number) => returnOBJ;
-  sendFile: (amount: number) => returnOBJ;
-  sendMessage: (amount: number) => returnOBJ;
+  addReaction: <T>(messages: T[]) => Promise<returnOBJ>;
+  fetchChannels: (amount: number) => Promise<returnOBJ>;
+  fetchGuilds: (amount: number) => Promise<returnOBJ>;
+  fetchMessages: (amount: number) => Promise<returnOBJ>;
+  fetchRoles: (amount: number) => Promise<returnOBJ>;
+  fetchUsers: (amount: number) => Promise<returnOBJ>;
+  removeReactions: <T>(messages: T[]) => Promise<returnOBJ>;
+  sendEmbed: (amount: number) => Promise<returnOBJ>;
+  sendFile: (amount: number) => Promise<returnOBJ>;
+  sendMessage: (amount: number) => Promise<returnOBJ>;
 };
 
 interface Libs {
@@ -99,16 +99,16 @@ const data: Record<Name, Benchmark> = {
 };
 
 for (const { name, module } of libs) {
-  data[name].fetch.messages = module.fetchMessages(config.fetch.messages);
-  data[name].fetch.users = module.fetchUsers(config.fetch.users);
-  data[name].fetch.channels = module.fetchChannels(config.fetch.channels);
-  data[name].fetch.roles = module.fetchRoles(config.fetch.roles);
-  data[name].fetch.guilds = module.fetchGuilds(config.fetch.guilds);
+  data[name].fetch.messages = await module.fetchMessages(config.fetch.messages);
+  data[name].fetch.users = await module.fetchUsers(config.fetch.users);
+  data[name].fetch.channels = await module.fetchChannels(config.fetch.channels);
+  data[name].fetch.roles = await module.fetchRoles(config.fetch.roles);
+  data[name].fetch.guilds = await module.fetchGuilds(config.fetch.guilds);
 
-  data[name].send.messages = module.sendMessage(config.send.messages);
-  data[name].send.embed = module.sendEmbed(config.send.messages);
-  data[name].send.files = module.sendFile(config.send.files);
-  data[name].send.addReactions = module.addReaction([""]);
-  data[name].send.removeReactions = module.removeReactions([""]);
+  data[name].send.messages = await module.sendMessage(config.send.messages);
+  data[name].send.embed = await module.sendEmbed(config.send.messages);
+  data[name].send.files = await module.sendFile(config.send.files);
+  data[name].send.addReactions = await module.addReaction([""]);
+  data[name].send.removeReactions = await module.removeReactions([""]);
 }
 console.log(data);
