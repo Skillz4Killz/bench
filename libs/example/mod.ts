@@ -45,6 +45,23 @@ export function fetchUsers(amount: number): returnOBJ {
 
   return obj;
 }
+export function fetchChannels(amount: number): returnOBJ {
+  const obj: returnOBJ = {
+    avg: NaN,
+    total: NaN,
+  };
+
+  const start = performance.now();
+
+  // FETCH CHANNELS
+
+  const stop = performance.now();
+
+  obj.total = stop - start;
+  obj.avg = obj.total / amount;
+
+  return obj;
+}
 
 export function fetchRoles(amount: number): returnOBJ {
   const obj: returnOBJ = {
@@ -175,7 +192,7 @@ export function removeReactions(messages: unknown[]): returnOBJ {
   const start = performance.now();
 
   for (const message of messages) {
-    // remove :thumbsup: reaction to message[i]
+    // remove :thumbsup: reaction to message
     // Client.removeReactions(message);
   }
 
