@@ -1,5 +1,5 @@
 import { config, discordeno, harmony, space } from "./mod.ts";
-const benchmarks = {
+const benchmarks = () => ({
   fetch: {
     users: {
       avg: NaN,
@@ -44,11 +44,12 @@ const benchmarks = {
       total: NaN,
     },
   },
-};
+});
+
 const data = {
-  harmony: benchmarks,
-  discordeno: benchmarks,
-  space: benchmarks,
+  harmony: benchmarks(),
+  discordeno: benchmarks(),
+  space: benchmarks(),
 };
 
 /**
