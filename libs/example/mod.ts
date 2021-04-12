@@ -1,12 +1,7 @@
 // IMPORT CLIENT HERE VIA deno.land/x url
-
+import type { returnOBJ } from "../../types.ts";
 const message = "Hello Discord";
 const fileDirectory = "./libs/example/mod.ts";
-
-interface returnOBJ {
-  avg: number;
-  total: number;
-}
 
 // CREATE NEW INSTANCE OF CLIENT; const client = new Client();
 
